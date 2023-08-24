@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html >
-<script src="/resource/common.js" defer="defer"></script>
+<html xmlns:th="http://www.thymeleaf.org">
 
 <body>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -128,22 +127,22 @@
 	<!--            </tbody>-->
 	<!--        </table>-->
 	<!--    </div>-->
-
+ <br><br>
+ <button id="prevBtn">Previous</button>
+  <button id="nextBtn">Next</button>
+ 
 	<div id="slider-container">
-		<div id="slider">
+		<div id="slider" style="transform: translateX(0px);">
             <c:forEach items="${cars}" var="car">
             <tr>
               <div class="slide">
                 <img src="${car.imgUrl}">
               </div>
-            </tr>
-            </c:forEach>
-		  
-    </div>
+             </tr>
+             </c:forEach>
+      </div>
 	</div>
-	<button id="prevBtn">Previous</button>
-	<button id="nextBtn">Next</button>
-
+	
 
 </body>
 
@@ -159,6 +158,8 @@
 		width: 1000px;
 		overflow: hidden;
 		position: relative;
+    margin-left:auto;
+    margin-right:auto;
 	}
 
 	#slider {
@@ -172,12 +173,12 @@
 	}
 
 	img {
-		width: 300px;
-		height: 200px;
+		width: 1000px;
+		height: 500px;
 	}
 
 	[id^="check-box"] {
-		display:none;
+		
 	}
 
 	[id^="choice"] {
@@ -187,37 +188,37 @@
 
 
 
- <script>
-
+ <script type="text/javascript">
  const slider = document.getElementById("slider");
  const prevBtn = document.getElementById("prevBtn");
  const nextBtn = document.getElementById("nextBtn");
- const slideWidth = 300; // Adjust to your image width
+ const slideWidth = 1000; // Adjust to your image width
 
  let currentSlide = 0;
 
  prevBtn.addEventListener("click", () => {
  	currentSlide = Math.max(currentSlide - 1, 0);
  	updateSliderPosition();
- 	alert("SAda");
  });
 
  nextBtn.addEventListener("click", () => {
- 	currentSlide = Math.min(currentSlide + 1, slider.children.length - 1);
+	 
+	 currentSlide = Math.min(currentSlide + 1, slider.children.length - 1);
  	updateSliderPosition();
+ 	
  });
 
  function updateSliderPosition() {
  	const offset = -currentSlide * slideWidth;
- 	slider.style.transform = `translateX(${offset}px)`;
+    slider.style.transform = 'translateX(' + offset + 'px)';
+ 	console.log(offset);
+ 	
  }
 
-	
-</script>
 
 
 
-<script>
+
 
 $(document).ready(function () {
 	// Select all divs with IDs starting with "button"
