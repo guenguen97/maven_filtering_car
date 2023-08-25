@@ -11,17 +11,19 @@
 </head>
 <body>
 
+<div class="bgImg">
+  <img class ="carImg" src="https://www.hyundai.com/contents/vr360/MX03/exterior/WW2/001.png" alt=""> 
+</div>
+
+
 <div class="colorList">
  <c:forEach items="${carDetail}" var="carDetail">
-  <button class="${carDetail.color}">${carDetail.name}</d>
+  <div id="carDetail1" class="${carDetail.color}" background-color="${carDetail.color}">${carDetail.name}</div>
   
   </c:forEach>
 </div>
 
 
-<div class="bgImg">
-  <img class ="carImg" src="https://www.hyundai.com/contents/vr360/MX03/exterior/WW2/001.png" alt=""> 
-</div>
 </body>
 
 <style>
@@ -31,7 +33,18 @@
     width:1000px;
   height: 500px;
 }
+.carDetail1{
+   width: 200px;
+   height:200px;
+   
+
+}
+
+
+
 </style>
+
+
 
 <script>
 <c:forEach items="${carDetail}" var="carDetail">

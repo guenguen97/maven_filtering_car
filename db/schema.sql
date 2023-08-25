@@ -171,3 +171,28 @@ minPrice = 4900,
 maxPrice = 5900,
 imgUrl = 'https://img1.daumcdn.net/thumb/S720x440ht.u/?fname=%2Fmedia%2Fvitraya%2Fauto%2Fimage%2Fc613a8%2FACCA5CB0E3B872BDCEABC3973A2B26611BC8303DD0574AAA15_85GK&scode=media'
 ;
+
+DROP TABLE carDetail ;
+
+
+CREATE TABLE carDetail (
+id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+`name` CHAR(20) NOT NULL,
+`color` CHAR(20) NOT NULL,
+
+imgUrl TEXT NOT NULL
+);
+
+INSERT INTO carDetail
+SET `name` = '흰색',
+`color` = 'white',
+imgUrl = 'https://www.hyundai.com/contents/vr360/MX03/exterior/WW2/001.png'
+;
+
+INSERT INTO carDetail
+SET `name` = '갈색',
+`color` = 'brown',
+imgUrl = 'https://www.hyundai.com/contents/vr360/MX03/exterior/YBM/001.png'
+;
+
+SELECT * FROM carDetail;
