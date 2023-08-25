@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,8 +12,10 @@
 <body>
 
 <div class="colorList">
-  <button class="white">흰색</d>
-  <button class="brown">갈색</d>
+ <c:forEach items="${carDetail}" var="carDetail">
+  <button class="${carDetail.color}">${carDetail.name}</d>
+  
+  </c:forEach>
 </div>
 
 
@@ -30,14 +34,18 @@
 </style>
 
 <script>
-$(".white").on("click",function() {
+<c:forEach items="${carDetail}" var="carDetail">
+      $(".${carDetail.color}").on("click",function() {
 	
-	   $(".carImg").attr("src", "https://www.hyundai.com/contents/vr360/MX03/exterior/WW2/001.png");
-	})
+	   $(".carImg").attr("src", "${carDetail.imgUrl}");
+	  })
+</c:forEach>
 
-	$(".brown").on("click",function() {
-	   $(".carImg").attr("src", "https://www.hyundai.com/contents/vr360/MX03/exterior/YBM/001.png");
-	})
+
+
+
+
+
 </script>
 
 </html>

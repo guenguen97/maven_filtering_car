@@ -15,7 +15,9 @@ public class SearchForm {
     private List<Long> distanceDriven;
     private List<Long> maxPrice;
 
-    
+    private String name;
     private String color;
+	private String imgUrl;
+
 
 }

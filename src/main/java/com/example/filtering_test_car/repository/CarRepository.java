@@ -43,10 +43,17 @@ public interface CarRepository {
 	
 	
 	
+	@Select("""
+		    <script>
+		        SELECT *
+		        FROM `CarDetail` 
+		      
+		          
+		        
+		    </script>
+		""")
+	public List<CarDetail> getColor(@Param("color") String color);
 	
-	public static void getColor(String color){
-		return;
-	};
 
 
 }

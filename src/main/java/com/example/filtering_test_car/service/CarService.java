@@ -23,7 +23,8 @@ public class CarService {
         return carRepository.getCarsBySearch(size, engine, displacement, distanceDriven, maxPrice);
     }
     
-    public void getColor(String color) {
-        
+    public List<CarDetail> getColor(String color) {
+        return carRepository.getColor(color);
+
     }
 }

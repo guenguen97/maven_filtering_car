@@ -9,5 +9,8 @@ import lombok.NonNull;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CarDetail {
-		private String color;
+	private int id;
+	private String color;
+	private String name;
+	private String imgUrl;
 }

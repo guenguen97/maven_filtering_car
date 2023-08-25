@@ -3,6 +3,7 @@ package com.example.filtering_test_car.controller;
 
 import com.example.filtering_test_car.service.CarService;
 import com.example.filtering_test_car.vo.Car;
+import com.example.filtering_test_car.vo.CarDetail;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -60,9 +61,10 @@ public class CarController {
     @RequestMapping("/usr/home/color")
     public String color(SearchForm form, Model model){
     	
-    	 List<CarDetail> carDetail= carService.getCarsBySearch(form.getSize(), form.getEngine(), form.getDisplacement(), form.getDistanceDriven(), form.getMaxPrice());
+    	 List<CarDetail> carDetail= carService.getColor(form.getColor());
          model.addAttribute("carDetail",carDetail);
-         for(carDetail carDetail : carDetail) {
+        
+         for(CarDetail car : carDetail) {
              System.out.println(car.getId());
          }
         return "usr/home/color";
