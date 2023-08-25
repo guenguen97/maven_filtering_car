@@ -56,4 +56,15 @@ public class CarController {
         return "usr/home/main";
     }
 
+    
+    @RequestMapping("/usr/home/color")
+    public String color(SearchForm form, Model model){
+    	
+    	 List<CarDetail> carDetail= carService.getCarsBySearch(form.getSize(), form.getEngine(), form.getDisplacement(), form.getDistanceDriven(), form.getMaxPrice());
+         model.addAttribute("carDetail",carDetail);
+         for(carDetail carDetail : carDetail) {
+             System.out.println(car.getId());
+         }
+        return "usr/home/color";
+    }
 }

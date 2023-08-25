@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 import com.example.filtering_test_car.vo.Car;
+import com.example.filtering_test_car.vo.CarDetail;
 
 @Mapper
 public interface CarRepository {
@@ -17,10 +18,16 @@ public interface CarRepository {
 		        FROM `car` 
 		        WHERE  id
 		          <if test="size != null">
-		          AND `size`=#{size} 
+		          AND  `size` in <foreach collection="size" item="code" index="index"
+			          separator="," open="(" close=")">
+			          #{code}
+			      </foreach>
 		          </if>
 		          <if test = " engine != null">
-		          AND `engine` LIKE  CONCAT('%',#{engine},'%')
+		          AND  `engine` in <foreach collection="engine" item="code" index="index"
+			          separator="," open="(" close=")">
+			          #{code}
+			      </foreach>
 		           </if>
 		          <if test = " displacement != null">
 		          AND `displacement` &lt; #{displacement}
@@ -30,9 +37,16 @@ public interface CarRepository {
 		        </if>
 		    </script>
 		""")
-	public List<Car> getCarsBySearch(@Param("size") String size, @Param("engine") String engine,
-			@Param("displacement") Long displacement, @Param("distanceDriven") Long distanceDriven,
-			@Param("maxPrice") Long maxPrice);
+	public List<Car> getCarsBySearch(@Param("size") List<String>  size, @Param("engine") List<String>  engine,
+			@Param("displacement")List<Long>  displacement, @Param("distanceDriven")List<Long>   distanceDriven,
+			@Param("maxPrice") List<Long>  maxPrice);
+	
+	
+	
+	
+	public static void getColor(String color){
+		return;
+	};
 
 
 }

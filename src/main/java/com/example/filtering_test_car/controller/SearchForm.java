@@ -1,5 +1,7 @@
 package com.example.filtering_test_car.controller;
 
+import java.util.List;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -7,11 +9,13 @@ import lombok.Setter;
 @Setter
 public class SearchForm {
 
-    private String size;
-    private String engine;
-    private Long displacement;
-    private Long distanceDriven;
-    private Long maxPrice;
+    private List<String> size;
+    private List<String> engine;
+    private List<Long> displacement;
+    private List<Long> distanceDriven;
+    private List<Long> maxPrice;
 
+    
+    private String color;
 
 }

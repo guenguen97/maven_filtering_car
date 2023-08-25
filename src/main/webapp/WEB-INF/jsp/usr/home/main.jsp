@@ -5,7 +5,8 @@
 
 <body>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<form action="/" method="post">
+	<div><a href="/usr/home/color">색 바꾸기</a></div>    
+  <form action="/" method="post">
 		<div>
 			<p>차량 크기</p>
 			<div>
