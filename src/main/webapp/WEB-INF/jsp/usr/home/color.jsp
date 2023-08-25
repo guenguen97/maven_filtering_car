@@ -18,7 +18,7 @@
 
 <div class="colorList">
  <c:forEach items="${carDetail}" var="carDetail">
-  <div id="carDetail1" class="${carDetail.color}" background-color="${carDetail.color}">${carDetail.name}</div>
+  <div id="${carDetail.color}" class="${carDetail.color}" background-color="${carDetail.color}">${carDetail.name}</div>
   
   </c:forEach>
 </div>
@@ -33,13 +33,24 @@
     width:1000px;
   height: 500px;
 }
-.carDetail1{
-   width: 200px;
-   height:200px;
-   
+.colorList{
+display:flex;
+}
+.colorList> div{
+   width: 50px;
+   height:50px;
+   border: 1px solid black;
+ 
 
 }
+<c:forEach items="${carDetail}" var="carDetail">
 
+  
+ #${carDetail.color}{
+ background-color:${carDetail.color}
+ }
+
+ </c:forEach>
 
 
 </style>
