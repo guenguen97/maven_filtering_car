@@ -18,7 +18,7 @@
 
 <div class="colorList">
  <c:forEach items="${carDetail}" var="carDetail">
-  <div id="${carDetail.color}" class="${carDetail.color}" background-color="${carDetail.color}">${carDetail.name}</div>
+  <div id="${carDetail.color}" class="${carDetail.color}" >날 눌러라</div>
   
   </c:forEach>
 </div>
@@ -40,6 +40,7 @@ display:flex;
    width: 50px;
    height:50px;
    border: 1px solid black;
+   margin: 0 20px; 
  
 
 }
